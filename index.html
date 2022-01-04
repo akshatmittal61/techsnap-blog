@@ -48,6 +48,10 @@
 				</ul>
 			</nav>
 			<div class="header-buttons">
+				<button class="theme">
+					<span class="material-icons" id="light">light_mode</span>
+					<span class="material-icons" id="dark">dark_mode</span>
+				</button>
 				<button
 					class="header-button btn btn-outline btn-primary btn-sm"
 				>
@@ -121,6 +125,7 @@
 										Images, Buttons, Tables, and Lists
 									</li>
 								</ul>
+								<img src="./images/html5.webp" alt="HTML5" />
 							</section>
 							<section>
 								<h2>CSS</h2>
@@ -195,6 +200,24 @@
 									</span>
 								</code>
 							</section>
+							<section class="blog-buttons">
+								<button class="btn btn-primary btn-outline">
+									<span class="material-icons">thumb_up</span>
+									<span class="blog-button__text">Like</span>
+								</button>
+								<button class="btn btn-primary btn-outline">
+									<span class="material-icons">forum</span>
+									<span class="blog-button__text">
+										Comment
+									</span>
+								</button>
+								<button class="btn btn-primary btn-outline">
+									<span class="material-icons">favorite</span>
+									<span class="blog-button__text">
+										Add To favourites
+									</span>
+								</button>
+							</section>
 						</div>
 					</div>
 					<div class="blog-comments"></div>
@@ -208,5 +231,6 @@
 		</button>
 		<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 		<script src="./app.js"></script>
+		<script src="./theme.js"></script>
 	</body>
 </html>

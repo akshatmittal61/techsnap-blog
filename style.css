@@ -14,7 +14,7 @@
   --tcolor-100: #333333;
   --tcolor-400: #272727;
   --tcolor-700: #1d1d1d;
-  --primary: #ff00d6;
+  --primary: #b74b90;
   --primary-100: #ff99ef;
   --primary-400: #ff66e6;
   --primary-700: #990080;
@@ -296,10 +296,11 @@ button {
   line-height: 1.5;
   transition: all var(--transition-time) ease-in-out;
   background-color: var(--back-shadow-light);
-  color: var(--tcolor-700); }
+  color: var(--bgcolor); }
   .btn:hover {
     background-color: var(--back-shadow);
-    outline: 0.15rem solid transparent; }
+    outline: 0.15rem solid transparent;
+    color: var(--tcolor); }
   .btn:active, .btn:focus, .btn:focus-visible, .btn:focus-within {
     background-color: var(--back-shadow-dark);
     outline: 0.15rem solid transparent; }
@@ -325,9 +326,11 @@ button {
       background-color: var(--primary-400);
       outline: 0.15rem solid var(--primary); }
   .btn-outline {
-    background-color: transparent; }
+    background-color: transparent;
+    color: var(--tcolor); }
     .btn-outline:hover {
-      background-color: var(--primary); }
+      background-color: var(--primary);
+      color: var(--bgcolor); }
 
 .fab {
   position: fixed;
@@ -427,12 +430,11 @@ button {
   .main-left {
     width: 70%; }
   .main-right {
-    width: 30%;
-    background-color: #f57c00; }
+    width: 30%; }
 
 .blog {
   width: 100%;
-  padding: 3rem 2rem;
+  padding: 2rem;
   overflow: hidden; }
   .blog-container {
     width: 100%; }
@@ -495,14 +497,14 @@ button {
     padding: 0.35rem 0.8rem;
     border-radius: 500px;
     background-color: var(--indigo-100);
+    color: #121212;
     border: 2px solid var(--indigo-400);
     font-size: 0.8rem;
-    color: var(--tcolor);
     transition: all var(--transition-time) ease-in-out; }
     .blog-tag:hover {
       background-color: var(--indigo-400);
       border: 2px solid var(--indigo-400);
-      color: var(--bgcolor); }
+      color: #f0f0f0; }
   .blog-content section {
     margin: 3rem 0; }
   .blog-content p {
@@ -538,8 +540,8 @@ button {
       padding: 0.1rem 0.5rem; }
   .blog-content code {
     margin: 1rem;
-    background-color: var(--tcolor);
-    color: var(--bgcolor);
+    background-color: #1d1d1d;
+    color: #f0f0f0;
     border-radius: 10px;
     padding: 1rem 2rem;
     display: flex;
@@ -550,6 +552,14 @@ button {
       white-space: nowrap; }
       .blog-content code span::-webkit-scrollbar {
         height: 4px; }
+  .blog-buttons {
+    width: 100%;
+    display: flex; }
+    .blog-buttons button .material-icons {
+      color: var(--primary);
+      margin-right: 0.5rem; }
+    .blog-buttons button:hover .material-icons, .blog-buttons button:active .material-icons, .blog-buttons button:focus .material-icons {
+      color: var(--bgcolor); }
 
 ::-webkit-scrollbar {
   width: 8px;
