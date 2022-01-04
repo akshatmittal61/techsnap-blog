@@ -407,23 +407,81 @@ button {
   display: flex;
   justify-content: space-between; }
   .main-left {
-    width: 70%;
-    background-color: violet; }
+    width: 70%; }
   .main-right {
     width: 30%;
-    background-color: #0097a7; }
+    background-color: #f57c00; }
 
 .blog {
   width: 100%;
   padding: 3rem 2rem; }
   .blog-container {
     width: 100%; }
+  .blog-head {
+    margin: 2rem 0; }
   .blog-title {
     width: 100%;
     font-size: 3rem;
     line-height: 3.25rem;
     padding: 0.5rem 0;
     white-space: wrap; }
+  .blog-subtitle {
+    width: 90%;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    padding: 0.5rem 0; }
+  .blog-tags {
+    width: 80%;
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap; }
+  .blog-tag {
+    margin: 0.25rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 500px;
+    background-color: var(--indigo-100);
+    border: 2px solid var(--indigo-400);
+    font-size: 0.8rem;
+    color: var(--tcolor);
+    transition: all var(--transition-time) ease-in-out; }
+    .blog-tag:hover {
+      background-color: var(--indigo-400);
+      border: 2px solid var(--indigo-400);
+      color: var(--bgcolor); }
+  .blog-content section {
+    margin: 3rem 0; }
+  .blog-content p {
+    margin: 1rem 0; }
+  .blog-content ul {
+    list-style: none;
+    margin: 1rem 3rem; }
+  .blog-content li {
+    padding: 0.25rem 1rem; }
+    .blog-content li::marker {
+      content: " > "; }
+  .blog-content blockquote {
+    padding: 1rem 2rem;
+    background-color: var(--bgcolor);
+    border: 2px solid var(--indigo);
+    position: relative;
+    transform-style: preserve-3d; }
+    .blog-content blockquote::before {
+      content: "";
+      position: absolute;
+      background-color: var(--indigo);
+      width: 100%;
+      height: 100%;
+      top: 10%;
+      left: 1%;
+      transform: translateZ(-1px); }
+  .blog-content code {
+    margin: 1rem;
+    background-color: var(--tcolor);
+    color: var(--bgcolor);
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-flow: column; }
 
 ::-webkit-scrollbar {
   width: 8px;
