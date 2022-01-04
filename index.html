@@ -23,11 +23,19 @@
 		<header class="header">
 			<div class="header-logo">
 				<a href="/" class="header-logo-link">
-					<img
-						src="./images/favicon.jpeg"
-						alt="Techsnap"
-						class="header-logo__img"
-					/>
+					<div class="header-logo-image">
+						<img
+							src="./images/favicon.jpeg"
+							alt="Techsnap"
+							class="header-logo__img"
+						/>
+					</div>
+					<div class="header-logo-content">
+						<span class="header-logo-content__title">Techsnap</span>
+						<span class="header-logo-content__subtitle">
+							Snap the Tech
+						</span>
+					</div>
 				</a>
 			</div>
 			<nav class="header-nav">
@@ -40,10 +48,32 @@
 				</ul>
 			</nav>
 			<div class="header-buttons">
-				<button class="header-button btn btn-outline">Log In</button>
-				<button class="header-button btn btn-fill">Sign Up</button>
+				<button
+					class="header-button btn btn-outline btn-primary btn-sm"
+				>
+					Log In
+				</button>
+				<button class="header-button btn btn-fill btn-primary btn-sm">
+					Sign Up
+				</button>
 			</div>
 		</header>
+		<main class="main">
+			<div class="main-left">
+				<div class="blog">
+					<div class="blog-container">
+						<div class="blog-head">
+							<div class="blog-title"></div>
+							<div class="blog-subtitle"></div>
+						</div>
+						<div class="blog-content"></div>
+					</div>
+					<div class="blog-comments"></div>
+				</div>
+			</div>
+			<div class="main-right"></div>
+		</main>
 		<footer class="footer"></footer>
+		<script src="./app.js"></script>
 	</body>
 </html>
