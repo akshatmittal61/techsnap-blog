@@ -265,8 +265,12 @@ trendingBlogs.forEach((item) => {
 	morePost.className = "more-blogs-body-post";
 	morePost.appendChild(newPost);
 	Col.appendChild(morePost);
-	console.log(Col);
 	moreBlogsBody.appendChild(Col);
+});
+
+const footerLinks = document.querySelectorAll(".footer-body-right-group__link");
+footerLinks.forEach((item) => {
+	item.setAttribute("href", `/${_.kebabCase(item.innerHTML)}`);
 });
 
 const fab = document.querySelector(".scroll-to-top");
