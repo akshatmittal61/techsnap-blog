@@ -261,6 +261,50 @@ a {
     border: none;
     outline: none; }
 
+input,
+textarea {
+  font: inherit;
+  text-rendering: auto;
+  background-color: var(--bgcolor);
+  color: var(--tcolor);
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: inherit;
+  text-indent: inherit;
+  text-shadow: inherit;
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+  cursor: text;
+  padding: 0.5rem; }
+  input, input:hover, input:focus, input:active, input:focus-within, input:focus-visible,
+  textarea,
+  textarea:hover,
+  textarea:focus,
+  textarea:active,
+  textarea:focus-within,
+  textarea:focus-visible {
+    border: none;
+    outline: none; }
+
+input,
+textarea {
+  border-radius: 5px;
+  background-color: var(--back-shadow-light);
+  transition: all var(--transition-time) ease-in-out;
+  resize: none;
+  margin: 0.5rem;
+  padding: 0.5rem; }
+  input:active, input:focus,
+  textarea:active,
+  textarea:focus {
+    background-color: var(--back-shadow); }
+  input::placeholder,
+  textarea::placeholder {
+    user-select: none;
+    font-size: 0.875rem; }
+
 button {
   background: inherit;
   color: inherit;
@@ -447,7 +491,7 @@ button {
     line-height: 3.25rem;
     padding: 0.5rem 0;
     letter-spacing: 0.1rem;
-    white-space: wrap; }
+    white-space: normal; }
   .blog-author {
     height: 5rem;
     display: flex;
@@ -560,6 +604,84 @@ button {
       margin-right: 0.5rem; }
     .blog-buttons button:hover .material-icons, .blog-buttons button:active .material-icons, .blog-buttons button:focus .material-icons {
       color: var(--bgcolor); }
+  .blog-comments {
+    margin: 3rem 0; }
+    .blog-comments-head {
+      margin: 1rem 0;
+      font-size: 3rem;
+      line-height: 3.5rem; }
+    .blog-comments-body {
+      padding: 1rem 0; }
+  .blog-comment {
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 2rem; }
+    .blog-comment-image {
+      width: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .blog-comment-image__link {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+      .blog-comment-image__img {
+        object-fit: cover;
+        max-width: 70%;
+        max-height: 70%;
+        border-radius: 500px; }
+    .blog-comment-content {
+      width: 80%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-flow: column;
+      background-color: var(--back-shadow-light);
+      border-radius: 5px;
+      border: 2px solid var(--back-shadow);
+      padding: 0 0.5rem; }
+      .blog-comment-content-head {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 0 1rem 0; }
+        .blog-comment-content-head__name {
+          font-weight: 700;
+          font-size: 1.25rem;
+          line-height: 1.5rem; }
+        .blog-comment-content-head > * {
+          padding: 0 0.5rem 0 0; }
+          .blog-comment-content-head > *:not(:first-child) {
+            padding: 0 0.5rem; }
+          .blog-comment-content-head > *:not(:last-child) {
+            border-right: 2.5px solid var(--back-shadow); }
+      .blog-comment-content__text {
+        padding: 0.5rem 0; }
+      .blog-comment-content form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-flow: column; }
+        .blog-comment-content form button {
+          width: fit-content;
+          display: none; }
+        .blog-comment-content form textarea {
+          width: 80%;
+          height: 7.5rem; }
+        .blog-comment-content form textarea:active + button,
+        .blog-comment-content form textarea:focus + button {
+          display: flex; }
+  .blog-comments-add .blog-comment-content {
+    background-color: transparent;
+    border-radius: 0;
+    border: 0 solid var(--back-shadow);
+    padding: 0; }
 
 ::-webkit-scrollbar {
   width: 8px;
