@@ -263,7 +263,7 @@ trendingBlogs.forEach((item) => {
 	Col.className = "col-lg-33 col-md-50 col-sm-100";
 	let morePost = document.createElement("div");
 	morePost.className = "more-blogs-body-post";
-	morePost.appendChild(newPost);
+	morePost.appendChild(trendingPost.cloneNode(true));
 	Col.appendChild(morePost);
 	moreBlogsBody.appendChild(Col);
 });
