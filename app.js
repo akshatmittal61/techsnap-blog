@@ -36,6 +36,43 @@ const blog = {
 	],
 };
 
+const socials = [
+	{
+		icon: "./icons/Facebook.svg",
+		name: "Facebook",
+		link: `https://www.facebook.com/sharer/sharer.php?u=${document.location.href}`,
+	},
+	{
+		icon: "./icons/Gmail.svg",
+		name: "Gmail",
+		link: "https://gmail.com",
+	},
+	{
+		icon: "./icons/Instagram.svg",
+		name: "Instagram",
+		link: "https://instagram.com",
+	},
+	{
+		icon: "./icons/LinkedIn.svg",
+		name: "LinkedIn",
+		link: `https://www.linkedin.com/shareArticle?url=${
+			document.location.href
+		}&title=${document.querySelector("title").innerHTML}`,
+	},
+	{
+		icon: "./icons/Twitter.svg",
+		name: "Twitter",
+		link: `https://twitter.com/intent/tweet?url=${
+			document.location.href
+		}&text=${document.querySelector("title").innerHTML}`,
+	},
+	{
+		icon: "./icons/WhatsApp.svg",
+		name: "WhatsApp",
+		link: `https://web.whatsapp.com/send?text=${document.location.href}`,
+	},
+];
+
 const blogTitle = document.querySelector(".blog-title");
 const blogAuthorImg = document.querySelector(".blog-author-image__img");
 const bloaAuthorImgLink = document.querySelector(".blog-author-image__link");
@@ -46,6 +83,7 @@ const blogTags = document.querySelector(".blog-tags");
 const blogContent = document.querySelector(".blog-content");
 const blogBgImg = document.querySelector(".blog-bg__img");
 const blogCoomentsBody = document.querySelector(".blog-comments-body");
+const shareBody = document.querySelector(".share-body");
 
 blogTitle.innerHTML = blog.title;
 blogAuthorImg.setAttribute("src", blog.author.image);
@@ -130,4 +168,22 @@ blog.comments.forEach((item) => {
 	comment.appendChild(commentContent);
 
 	blogCoomentsBody.appendChild(comment);
+});
+
+socials.forEach((social) => {
+	let shareSocial = document.createElement("div");
+	shareSocial.className = "share-social";
+
+	let socialLink = document.createElement("a");
+	socialLink.className = "share-social__link";
+	socialLink.setAttribute("href", social.link);
+
+	let socialImg = document.createElement("img");
+	socialImg.className = "share-social__img";
+	socialImg.setAttribute("src", social.icon);
+
+	socialLink.appendChild(socialImg);
+	shareSocial.appendChild(socialLink);
+
+	shareBody.appendChild(shareSocial);
 });
