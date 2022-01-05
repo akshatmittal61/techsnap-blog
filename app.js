@@ -35,6 +35,32 @@ const blog = {
 		},
 	],
 };
+const trendingBlogs = [
+	{
+		...blog,
+		image: "./images/1.png",
+		title: "How to begin career as a data analyst with ststs knowledge",
+		date: "12/5/21",
+	},
+	{
+		...blog,
+		image: "./images/2.png",
+		title: "How to begin career as a data analyst with ststs knowledge",
+		date: "12/5/21",
+	},
+	{
+		...blog,
+		image: "./images/3.png",
+		title: "How to begin career as a data analyst with ststs knowledge",
+		date: "12/5/21",
+	},
+	{
+		...blog,
+		image: "./images/4.png",
+		title: "How to begin career as a data analyst with ststs knowledge",
+		date: "12/5/21",
+	},
+];
 
 const socials = [
 	{
@@ -84,6 +110,7 @@ const blogContent = document.querySelector(".blog-content");
 const blogBgImg = document.querySelector(".blog-bg__img");
 const blogCoomentsBody = document.querySelector(".blog-comments-body");
 const shareBody = document.querySelector(".share-body");
+const trendingBody = document.querySelector(".trending-body");
 
 blogTitle.innerHTML = blog.title;
 blogAuthorImg.setAttribute("src", blog.author.image);
@@ -179,6 +206,43 @@ socials.forEach((social) => {
 	shareSocial.appendChild(socialLink);
 
 	shareBody.appendChild(shareSocial);
+});
+
+trendingBlogs.forEach((item) => {
+	let trendingPost = document.createElement("div");
+	trendingPost.className = "trending-post";
+
+	let trendingPostImage = document.createElement("a");
+	trendingPostImage.className = "trending-post-image";
+	trendingPostImage.style.backgroundImage = `url(${item.image})`;
+	trendingPostImage.setAttribute("href", `/post/${_.kebabCase(item.title)}`);
+
+	let trendingPostContent = document.createElement("div");
+	trendingPostContent.className = "trending-post-content";
+
+	let trendingPostTitle = document.createElement("div");
+	trendingPostTitle.className = "trending-post__title";
+	let trendingPostLink = document.createElement("a");
+	trendingPostLink.setAttribute("href", `/post/${_.kebabCase(item.title)}`);
+	trendingPostLink.innerHTML = item.title;
+	trendingPostTitle.appendChild(trendingPostLink);
+
+	let trendingPostAuthor = document.createElement("div");
+	trendingPostAuthor.className = "trending-post__author";
+	trendingPostAuthor.innerHTML = `By <a href="/user/${item.author.username}">${item.author.name}</a>`;
+
+	let trendingPostPosted = document.createElement("div");
+	trendingPostPosted.className = "trending-post__posted";
+	trendingPostPosted.innerHTML = `<span class="material-icons">schedule</span> Posted on ${item.date}`;
+
+	trendingPostContent.appendChild(trendingPostTitle);
+	trendingPostContent.appendChild(trendingPostAuthor);
+	trendingPostContent.appendChild(trendingPostPosted);
+
+	trendingPost.appendChild(trendingPostImage);
+	trendingPost.appendChild(trendingPostContent);
+
+	trendingBody.appendChild(trendingPost);
 });
 
 const fab = document.querySelector(".scroll-to-top");
