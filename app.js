@@ -111,18 +111,13 @@ const blogBgImg = document.querySelector(".blog-bg__img");
 const blogCoomentsBody = document.querySelector(".blog-comments-body");
 const shareBody = document.querySelector(".share-body");
 const trendingBody = document.querySelector(".trending-body");
+const moreBlogsBody = document.querySelector(".more-blogs-body .row");
 
 blogTitle.innerHTML = blog.title;
 blogAuthorImg.setAttribute("src", blog.author.image);
-bloaAuthorImgLink.setAttribute(
-	"href",
-	`/user/${_.kebabCase(blog.author.username)}`
-);
+bloaAuthorImgLink.setAttribute("href", `/user/${blog.author.username}`);
 blogAuthorName.innerHTML = blog.author.name;
-blogAuthorName.setAttribute(
-	"href",
-	`/user/${_.kebabCase(blog.author.username)}`
-);
+blogAuthorName.setAttribute("href", `/user/${blog.author.username}`);
 blogAuthorTime.innerHTML = `Posted on ${blog.date}`;
 blogSubtitle.innerHTML = blog.subtitle;
 blog.tags.forEach((element) => {
@@ -144,15 +139,15 @@ blog.comments.forEach((item) => {
 	commentImage.className = "blog-comment-image";
 	let commentImageLink = document.createElement("a");
 	commentImageLink.className = "blog-comment-image__link";
-	commentImageLink.setAttribute(
-		"href",
-		`/user/${_.kebabCase(item.author.username)}`
-	);
+	commentImageLink.setAttribute("href", `/user/${item.author.username}`);
 	let commentImageImg = document.createElement("img");
 	commentImageImg.className = "blog-comment-image__img";
 	commentImageImg.setAttribute("src", item.author.image);
 	commentImageLink.appendChild(commentImageImg);
 	commentImage.appendChild(commentImageLink);
+
+	let commentContainer = document.createElement("div");
+	commentContainer.className = "blog-comment-container";
 
 	let commentContent = document.createElement("div");
 	commentContent.className = "blog-comment-content";
@@ -164,7 +159,7 @@ blog.comments.forEach((item) => {
 	commentContentHeadName.innerHTML = item.author.name;
 	commentContentHeadName.setAttribute(
 		"href",
-		`/user/${_.kebabCase(item.author.username)}`
+		`/user/${item.author.username}`
 	);
 	let commentContentHeadPosted = document.createElement("span");
 	commentContentHeadPosted.className = "blog-comment-content-head__posted";
@@ -184,8 +179,25 @@ blog.comments.forEach((item) => {
 	commentContent.appendChild(commentContentHead);
 	commentContent.appendChild(commentContentText);
 
+	let commentButtons = document.createElement("div");
+	commentButtons.className = "blog-comment-buttons";
+	let commentButton0 = document.createElement("button");
+	let commentButton1 = document.createElement("button");
+	commentButton0.className = "btn btn-primary btn-outline btn-sm";
+	commentButton0.innerHTML =
+		"<span class='material-icons'>thumb_up</span> Like";
+	commentButton1.className = "btn btn-primary btn-outline btn-sm";
+	commentButton1.innerHTML =
+		"<span class='material-icons'>forum</span> Comment";
+
+	commentButtons.appendChild(commentButton0);
+	commentButtons.appendChild(commentButton1);
+
+	commentContainer.appendChild(commentContent);
+	commentContainer.appendChild(commentButtons);
+
 	comment.appendChild(commentImage);
-	comment.appendChild(commentContent);
+	comment.appendChild(commentContainer);
 
 	blogCoomentsBody.appendChild(comment);
 });
@@ -233,7 +245,7 @@ trendingBlogs.forEach((item) => {
 
 	let trendingPostPosted = document.createElement("div");
 	trendingPostPosted.className = "trending-post__posted";
-	trendingPostPosted.innerHTML = `<span class="material-icons">schedule</span> Posted on ${item.date}`;
+	trendingPostPosted.innerHTML = `<span class="material-icons">schedule</span> &nbsp;Posted on ${item.date}`;
 
 	trendingPostContent.appendChild(trendingPostTitle);
 	trendingPostContent.appendChild(trendingPostAuthor);
@@ -243,6 +255,18 @@ trendingBlogs.forEach((item) => {
 	trendingPost.appendChild(trendingPostContent);
 
 	trendingBody.appendChild(trendingPost);
+
+	let Col = document.createElement("div");
+	let newPost = document.createElement("div");
+	newPost.className = "trending-post";
+	newPost.appendChild(trendingPost.cloneNode(true));
+	Col.className = "col-lg-33 col-md-50 col-sm-100";
+	let morePost = document.createElement("div");
+	morePost.className = "more-blogs-body-post";
+	morePost.appendChild(newPost);
+	Col.appendChild(morePost);
+	console.log(Col);
+	moreBlogsBody.appendChild(Col);
 });
 
 const fab = document.querySelector(".scroll-to-top");
