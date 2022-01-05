@@ -109,13 +109,6 @@ blog.tags.forEach((element) => {
 blogBgImg.setAttribute("src", blog.image);
 blogBgImg.setAttribute("alt", blog.title);
 
-const fab = document.querySelector(".scroll-to-top");
-window.addEventListener("scroll", () => {
-	fab.style.display = window.scrollY > window.innerHeight ? "flex" : "none";
-});
-fab.addEventListener("click", () => {
-	window.scrollTo(0, 0);
-});
 blog.comments.forEach((item) => {
 	let comment = document.createElement("div");
 	comment.className = "blog-comment";
@@ -186,4 +179,17 @@ socials.forEach((social) => {
 	shareSocial.appendChild(socialLink);
 
 	shareBody.appendChild(shareSocial);
+});
+
+const fab = document.querySelector(".scroll-to-top");
+const header = document.querySelector("header");
+window.addEventListener("scroll", () => {
+	fab.style.display = window.scrollY > window.innerHeight ? "flex" : "none";
+	header.style.position =
+		window.scrollY > window.innerHeight ? "fixed" : "relative";
+	header.style.boxShadow =
+		window.scrollY > window.innerHeight ? "var(--shadow-3d)" : "none";
+});
+fab.addEventListener("click", () => {
+	window.scrollTo(0, 0);
 });
